@@ -93,6 +93,6 @@ nextjs-portal {
 }
 
 body {
-  padding: 0 !important; 
-  overflow: auto !important;
+  padding: 0 !important; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
