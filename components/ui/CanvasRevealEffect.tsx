@@ -8,6 +8,7 @@ import { ReactThreeFiber } from "@react-three/fiber";
 
 extend({ ShaderMaterial: THREE.ShaderMaterial });
 
+/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -15,6 +16,7 @@ declare global {
     }
   }
 }
+/* eslint-enable @typescript-eslint/no-namespace */
 
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
