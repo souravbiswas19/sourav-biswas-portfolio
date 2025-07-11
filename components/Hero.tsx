@@ -30,11 +30,11 @@ const Hero = () => {
                 justify-center'>
                 <h2 className='uppercase tracking -widest
                 text-xs text-center text-blue-100 max-w-80'>
-                    Dynamic Web Magic with Next.js
+                    Empowering Applications with Neural Intelligence
                 </h2>
                 <TextGenerateEffect className='text-center text-[40px] 
                     md:text-5xl lg:text-6xl' 
-                    words='Transforming Concepts into Seamless User Experiences'>
+                    words='Translating Research into Real-World AI Solutions'>
                     
                  </TextGenerateEffect>
                  <div className='text-center text-white md:tracking-wider
