@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { gridItems } from "@/data";
 import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
+import { Button } from './ui/MovingBorders';
 
 const Grid = () => {
   return (
@@ -16,15 +17,30 @@ const Grid = () => {
         />
         {/* Overlay content */}
         <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-center bg-black/40 backdrop-blur-sm px-6">
-          {/* Profile image */}
-          <div className="rounded-full overflow-hidden border-4 border-purple-500 w-36 h-36 md:w-44 md:h-44 mb-6 md:mb-0 md:mr-10">
-            <Image
+            {/* Profile image */}
+            <div className="animate-spin-slow p-[3px] bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full w-[176px] h-[176px] md:w-[200px] md:h-[200px] flex items-center justify-center mb-6 md:mb-0 md:mr-10">
+            <Button
+                duration={Math.floor(Math.random() * 10000) + 10000}
+                borderRadius="9999px"
+                className="p-[3px] w-full h-full flex items-center justify-center text-white border-neutral-200 dark:border-slate-800"
+                >
+                <div className="rounded-full overflow-hidden w-full h-full">
+                  <Image
+                    src="/profile.jpg" // <-- Ensure the image exists in /public
+                    alt="Profile"
+                    width={160}
+                    height={160}
+                    className="rounded-full object-cover"
+                  />
+                </div>
+              </Button>
+            {/* <Image
               src="/profile.jpg" // put your actual profile image in /public
               alt="Sourav Biswas"
               width={176}
               height={176}
               className="object-cover"
-            />
+            /> */}
           </div>
 
           {/* Intro text */}
@@ -33,7 +49,7 @@ const Grid = () => {
               Hi, I'm Sourav Biswas 👋
             </h1>
             <p className="text-white text-sm md:text-lg mt-2 max-w-xl">
-              A passionate Computer Science Engineer turning ideas into visually captivating & technically sound user experiences.
+              A curious mind in Computer Science, driven by research and innovation in AI/ML and Deep Learning — transforming complex ideas into impactful, real-world systems.
             </p>
           </div>
         </div>
