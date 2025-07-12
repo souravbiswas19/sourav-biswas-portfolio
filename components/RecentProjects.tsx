@@ -47,11 +47,11 @@ const RecentProjects = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className='flex justify-center items-center'>
+                            {/* <div className='flex justify-center items-center'>
                                 <p className='flex lg:text-xl md:text-xs text-sm text-purple'>Check Live Site</p>
                                 <FaLocationArrow className='ms-3'
                                 color='#CBACF9'/>
-                            </div>
+                            </div> */}
                         </div>
                     </PinContainer>
                 </div>
