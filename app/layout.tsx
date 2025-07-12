@@ -17,6 +17,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Sourav Biswas",
   description: "Portfolio of Sourav Biswas",
+  icons: {
+    icon: "/favicon_profile.ico", // 👈 Your custom icon path
+  },
 };
 
 export default function RootLayout({

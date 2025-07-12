@@ -6,10 +6,11 @@ import { FaHome } from "react-icons/fa";
 import Grid from "@/components/Grid";
 import RecentProjects from "@/components/RecentProjects";
 import { navItems } from "@/data";
-import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
-import Approach from "@/components/Approach";
+import Education from "@/components/Education";
 import Footer from "@/components/Footer";
+import Publications from "@/components/Publications";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
         <FloatingNav navItems={navItems} />
         <Hero/>
         <Grid/>
-        <RecentProjects/>
-        <Clients/>
+        <Education/>
+        <Skills/>
         <Experience/>
-        <Approach/>
+        <RecentProjects/>
+        <Publications/>
         <Footer/>
       </div>
     </main>
