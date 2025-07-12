@@ -11,6 +11,7 @@ import Education from "@/components/Education";
 import Footer from "@/components/Footer";
 import Publications from "@/components/Publications";
 import Skills from "@/components/Skills";
+import ResumeDownload from "@/components/ResumeDownload";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Experience/>
         <RecentProjects/>
         <Publications/>
+        <ResumeDownload/>
         <Footer/>
       </div>
     </main>
