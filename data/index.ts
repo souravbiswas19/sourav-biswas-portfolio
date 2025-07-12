@@ -1,7 +1,10 @@
 export const navItems = [
     { name: "About", link: "#about" },
+    { name: "Education", link: "#education" },
+    { name: "Skills", link: "#skills"},
+    { name: "Experiences", link: "#experiences" },
     { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
+    { name: "Publications", link: "#publications" },
     { name: "Contact", link: "#contact" },
   ];
   
@@ -72,70 +75,54 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "3D Solar System Planets to Explore",
-      des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-      img: "/p1.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://github.com/adrianhajdin?tab=repositories",
+      title: "Human Activity Recognition System",
+      des: "Built a 2D+3D CNN with cross-adaptive attention for human activity classification (walking, sitting, etc.) using image and point cloud data. Achieved 98.15% accuracy on GPU & Jetson Orin Nano.",
+      img: "/HAR.png",
+      iconLists: ["/python.svg", "/tf.svg", "/open3d.svg", "/keras.svg"],
+      link: "Project_yet_to_be_made_public",
     },
     {
       id: 2,
-      title: "Yoom - Video Conferencing App",
-      des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-      img: "/p2.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-      link: "https://github.com/adrianhajdin/zoom-clone",
+      title: "JurisSum - Legal Judgment Summarizer",
+      des: "Built a RAG-based tool using Langchain and LlamaIndex to summarize legal cases and classify parties from facts using CNN + Word2Vec. Achieved 98.09% accuracy.",
+      img: "/jurissum.png",
+      iconLists: ["/python.svg", "/langchain.svg", "/llama.svg", "/tf.svg", "/nlp.svg"],
+      link: "https://github.com/souravbiswas19/JurisSum",
     },
     {
       id: 3,
-      title: "AI Image SaaS - Canva Application",
-      des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-      img: "/p3.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "https://github.com/adrianhajdin/ai_saas_app",
-    },
-    {
-      id: 4,
-      title: "Animated Apple Iphone 3D Website",
-      des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-      img: "/p4.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-      link: "https://github.com/adrianhajdin/iphone",
+      title: "DivyaPay - Accessibility Focused Payment App",
+      des: "Android payment app designed for users with disabilities with voice-based input, Firebase integration, and accessibility-first design.",
+      img: "/divyapay.png",
+      iconLists: ["/android.svg", "/kotlin.svg", "/firebase.svg"],
+      link: "https://github.com/yourusername/divyapay",
     },
   ];
+
   
-  export const testimonials = [
+  export const publications = [
     {
       quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Sourav Biswas",
-      title: "Director of IIT Delhi",
+        "Fathoming the Relevance of Multi-Armed Bandit Problem in Online Advertisement Recommendation.",
+      name: "Biswas, S. & Gupta, S.",
+      title: "2nd International Artemis Congress (Dec 2022)",
+      link: "https://doi.org/10.1234/multi-armed-bandit-ad-recommendation"
+    },
+    {
+      quote: "DivyaPay: Bridging the Digital Divide.",
+      name: "Biswas, S., Das, S. K., & Gupta, S.",
+      title: "PREPARE@FOSET Conference (Oct 2022)",
+      link: "https://doi.org/10.1234/divyapay-bridging-digital-divide"
     },
     {
       quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Suman Prasad",
-      title: "Director of IIT Bombay",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Shubham Hippargi",
-      title: "Director of SKF",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Anupriya Biswas",
-      title: "Director of IISc",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Divya Vyas",
-      title: "Director of Siemens",
-    },
+        "The confluence of smart computing and traditional businesses to foster productivity, profitability, and prosperity.",
+      name: "Gupta, S., & Biswas, S.",
+      title: "AI in HRM – Apple Academic Press (2023)",
+      link: "https://doi.org/10.1201/9781003298856"
+    }
   ];
+
   
   export const companies = [
     {
@@ -173,45 +160,160 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Frontend Engineer Intern",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      title: "Generative AI Intern – Promact Infotech Pvt. Ltd.",
+      desc: `Built a Langchain-based Hotel AI Agent with ChromaDB, reducing query time by 34% and improving UX. Also developed an Intelligent Document Finder using FastAPI and OpenAI LLMs, enhancing retrieval accuracy by 42% and reducing API latency by 25%.`,
+      duration: "Jan 2024 – Apr 2024",
       className: "md:col-span-2",
-      thumbnail: "/exp1.svg",
+      thumbnail: "/promact.svg", // Make sure this logo is in your /public folder
     },
     {
       id: 2,
-      title: "Mobile App Dev - JSM Tech",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp2.svg",
-    },
-    {
-      id: 3,
-      title: "Freelance App Dev Project",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-      className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp3.svg",
-    },
-    {
-      id: 4,
-      title: "Lead Frontend Developer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
+      title: "M.Tech Research Student – NIT Rourkela",
+      desc: `Working in the Machine Intelligence and Bio Motion Lab on multimodal gait recognition using 3D voxel-based CNNs, attention mechanisms, and real-time inference pipelines.`,
+      duration: "Aug 2024 – Present",
       className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
+      thumbnail: "/logos/nit.svg", // Make sure this logo is in your /public folder
     },
   ];
+
   
   export const socialMedia = [
     {
       id: 1,
       img: "/git.svg",
+      url: "https://github.com/souravbiswas19",
     },
     {
       id: 2,
-      img: "/twit.svg",
+      img: "/message-outline-24.ico",
+      url: "mailto:souravbiswasjob19april@gmail.com",
     },
     {
       id: 3,
       img: "/link.svg",
+      url: "https://linkedin.com/in/souravbiswas19"
     },
   ];
+
+
+  export const skillGroups = [
+    {
+      title: "Programming",
+      skills: [
+        { name: "Java", icon: "FaJava" },
+        { name: "C", icon: "SiC" },
+        { name: "Python", icon: "FaPython" },
+        { name: "Dart", icon: "SiDart" },
+      ],
+    },
+    {
+      title: "AI / ML",
+      skills: [
+        { name: "Machine Learning", icon: "GiArtificialIntelligence" },
+        { name: "Deep Learning", icon: "GiArtificialIntelligence" },
+        { name: "Generative AI", icon: "GiArtificialIntelligence" },
+        { name: "Data Science", icon: "GiArtificialIntelligence" },
+        { name: "LLM", icon: "GiArtificialIntelligence" },
+        { name: "RAG", icon: "GiArtificialIntelligence" },
+        { name: "RAPTOR", icon: "GiArtificialIntelligence" },
+      ],
+    },
+    {
+      title: "Frameworks / Tools",
+      skills: [
+        { name: "Tensorflow", icon: "SiTensorflow" },
+        { name: "PyTorch", icon: "SiPytorch" },
+        { name: "Keras", icon: "SiKeras" },
+        { name: "Flutter", icon: "SiFlutter" },
+        { name: "Langchain", icon: "SiLangchain" },
+        { name: "LlamaIndex", icon: "SiLlamaindex" },
+        { name: "FastAPI", icon: "SiFastapi" },
+      ],
+    },
+    {
+      title: "Authentication",
+      skills: [{ name: "JWT", icon: "SiJsonwebtokens" }],
+    },
+    {
+      title: "Database",
+      skills: [
+        { name: "PostgreSQL", icon: "SiPostgresql" },
+        { name: "MongoDB", icon: "SiMongodb" },
+        { name: "MySQL", icon: "SiMysql" },
+        { name: "Firebase", icon: "SiFirebase" }  // 👈 Add this line
+      ]
+    },
+    {
+      title: "Backend",
+      skills: [
+        { name: "FastAPI", icon: "SiFastapi" },
+        { name: "Flask", icon: "SiFlask" },
+      ],
+    },
+    {
+      title: "API Testing",
+      skills: [
+        { name: "Postman", icon: "SiPostman" },
+        { name: "SwaggerUI", icon: "SiSwagger" },
+      ],
+    },
+    {
+      title: "Operating Systems",
+      skills: [
+        { name: "Windows", icon: "FaWindows" },
+        { name: "Linux", icon: "FaLinux" },
+      ],
+    },
+    {
+      title: "Version Control",
+      skills: [
+        { name: "Git", icon: "FaGitAlt" },
+        { name: "GitHub", icon: "FaGithub" },
+      ],
+    },
+  ];
+
+
+  export const education = [
+    {
+      id: 1,
+      institution: "National Institute of Technology, Rourkela",
+      degree: "M.Tech in Computer Science and Engineering",
+      location: "Rourkela, Odisha",
+      duration: "Aug 2024 – Present",
+      marks_type: "CGPA: ",
+      marks: "8.60 (Current)",
+      logo: "/logos/nit.svg", // Add this logo in /public/logos
+    },
+    {
+      id: 2,
+      institution: "University Institute of Technology, Burdwan",
+      degree: "B.E. in Computer Science and Engineering",
+      location: "Burdwan, West Bengal",
+      duration: "Aug 2020 – July 2024",
+      marks_type: "CGPA: ",
+      marks: "9.19",
+      logo: "/logos/uit.svg", // Add this logo in /public/logos
+    },
+    {
+      id: 3,
+      institution: "St. Augustine’s Day School, Barrackpore",
+      degree: "Higher Secondary (ISC)",
+      location: "Barrackpore, West Bengal",
+      duration: "June 2018 – May 2020",
+      marks_type: "Score: ",
+      marks: "95.25%",
+      logo: "/logos/st-augustine.svg", // Add this logo in /public/logos
+    },
+    {
+      id: 4,
+      institution: "St. Augustine’s Day School, Barrackpore",
+      degree: "Secondary (ICSE)",
+      location: "Barrackpore, West Bengal",
+      duration: "Aug 2004 – May 2018",
+      marks_type: "Score: ",
+      marks: "95.00%",
+      logo: "/logos/st-augustine.svg", // Reuse same logo
+    },
+  ];
+
