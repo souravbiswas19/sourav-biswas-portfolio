@@ -1,16 +1,11 @@
 "use client";
 
 import { education } from "@/data";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 const Education = () => {
   return (
@@ -28,43 +23,55 @@ const Education = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <Card className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1A1A2E] via-[#0F0F1F] to-[#000000] shadow-md hover:shadow-purple-500/20 transition-all"
-                style={{
-                  background:
-                    'radial-gradient(circle at top left, #310356ff, #000000ff 60%, #1e085a 100%)',
-                }}
+            <CardContainer>
+              <CardBody
+                className="
+                  relative group/card
+                  rounded-2xl p-6 border border-white/10 shadow-md hover:shadow-purple-500/20 transition-all
+                  flex flex-col items-center text-center
+                  bg-[radial-gradient(circle_at_top_left,_#310356ff,_#000000ff_60%,_#1e085a_100%)]
+                "
               >
-              <CardHeader className="flex flex-col items-center gap-3">
-                {edu.logo && (
-                  <Image
-                    src={edu.logo}
-                    alt={`${edu.institution} logo`}
-                    width={64}
-                    height={64}
-                    className="object-contain"
-                  />
-                )}
-                <CardTitle className="text-lg md:text-xl text-purple font-semibold text-center">
-                  {edu.degree}
-                </CardTitle>
-                <Badge
-                  variant="outline"
-                  className="w-fit mt-1 text-white border-white/20 bg-white/5"
+                <CardItem translateZ={60} className="mb-6">
+                  {edu.logo && (
+                    <Image
+                      src={edu.logo}
+                      alt={`${edu.institution} logo`}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
+                  )}
+                </CardItem>
+
+                <CardItem
+                  translateZ={40}
+                  className="text-lg md:text-xl text-purple font-semibold mb-1"
                 >
-                  {edu.duration}
-                </Badge>
-              </CardHeader>
-              <CardContent className="pt-2 text-center">
-                <p className="text-white font-medium">{edu.institution}</p>
-                <p className="text-white/70 text-sm mt-2">{edu.location}</p>
-                {edu.marks && (
-                  <p className="text-white/80 text-sm mt-3 font-semibold">
-                    <span className="text-white">{edu.marks_type}</span>{" "}
-                    <span className="text-purple">{edu.marks}</span>
-                  </p>
-                )}
-              </CardContent>
-            </Card>
+                  {edu.degree}
+                </CardItem>
+
+                <CardItem translateZ={30} className="mb-3 leading-[3.0]">
+                  <span
+                    className="w-fit text-white border border-white/20 bg-white/5 rounded px-3 py-1 text-sm font-semibold"
+                    aria-label="Duration"
+                  >
+                    {edu.duration}
+                  </span>
+                </CardItem>
+
+                <CardItem className="pt-2 text-center leading-[3.0]" translateZ={30}>
+                  <p className="text-white font-medium">{edu.institution}</p>
+                  <p className="text-white/70 text-sm mt-2">{edu.location}</p>
+                  {edu.marks && (
+                    <p className="text-white/80 text-sm mt-3 font-semibold">
+                      <span className="text-white">{edu.marks_type}</span>{" "}
+                      <span className="text-purple">{edu.marks}</span>
+                    </p>
+                  )}
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </motion.div>
         ))}
       </div>
