@@ -1,10 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { skillGroups } from "@/data";
-import { BackgroundGradient } from "./ui/background-gradient";
-
-// ICONS
 import {
   FaJava,
   FaPython,
@@ -29,8 +26,11 @@ import {
   SiPostman,
   SiJsonwebtokens,
   SiFirebase,
+  SiLangchain,
 } from "react-icons/si";
 import { GiArtificialIntelligence } from "react-icons/gi";
+import { motion, AnimatePresence } from "framer-motion";
+import { BackgroundGradientAnimation } from "@/components/ui/GradientBG";
 
 const iconMap: { [key: string]: JSX.Element } = {
   FaJava: <FaJava />,
@@ -55,41 +55,79 @@ const iconMap: { [key: string]: JSX.Element } = {
   FaLinux: <FaLinux />,
   FaGitAlt: <FaGitAlt />,
   FaGithub: <FaGithub />,
+  SiLangchain: <SiLangchain />,
 };
 
 const Skills = () => {
+  const [activeGroup, setActiveGroup] = useState<string | null>(null);
+
   return (
-    <section className="w-full py-20 px-6 md:px-12" id="skills">
-      <h1 className="heading text-center">
+    <section id="skills" className="relative w-full py-24 px-6 md:px-12">
+      <h1 className="heading text-center mb-12">
         My <span className="text-purple">Skills</span>
       </h1>
 
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
         {skillGroups.map((group) => (
-          <BackgroundGradient
+          <motion.button
             key={group.title}
-            className="rounded-[22px] p-6 sm:p-10 bg-white dark:bg-zinc-900"
+            whileHover={{ scale: 1.1, rotate: 1 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative px-6 py-5 text-white font-semibold text-lg rounded-2xl transition-all duration-300 w-full text-center backdrop-blur-md border border-transparent group hover:border-[3px] hover:border-purple-500/70 shadow-[0_0_10px_rgba(168,85,247,0.6)] hover:shadow-purple-500/40"
+            onClick={() => setActiveGroup(group.title)}
           >
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-6">
-              {group.title}
-            </h3>
-
-            <div className="flex flex-wrap gap-3">
-              {group.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex items-center gap-2 bg-black/10 dark:bg-white/10 border border-white/20 text-black dark:text-white px-3 py-2 rounded-lg text-sm"
-                >
-                  <span className="text-lg text-purple-500 dark:text-purple-400">
-                    {iconMap[skill.icon]}
-                  </span>
-                  {skill.name}
-                </div>
-              ))}
-            </div>
-          </BackgroundGradient>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 group-hover:blur-sm group-hover:opacity-70 transition-all duration-700 rounded-2xl"></span>
+            <span className="relative z-10">{group.title}</span>
+            <span className="absolute inset-0 z-0 rounded-2xl group-hover:animate-ripple border border-white/20"></span>
+          </motion.button>
         ))}
       </div>
+
+      <AnimatePresence>
+        {activeGroup && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveGroup(null)}
+          >
+            <motion.div
+              className="relative rounded-2xl overflow-hidden p-6 bg-black/80 backdrop-blur-lg"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <BackgroundGradientAnimation
+                containerClassName="absolute inset-0 z-0 rounded-2xl"
+                className="absolute inset-0"
+              />
+              <div className="relative z-10">
+                <h2 className="text-white text-2xl font-bold mb-6 text-center">
+                  {activeGroup}
+                </h2>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {skillGroups
+                    .find((g) => g.title === activeGroup)
+                    ?.skills.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="flex items-center gap-2 bg-white/10 text-white border border-white/20 px-4 py-2 rounded-lg shadow-sm text-sm hover:bg-purple-600/20 transition"
+                      >
+                        <span className="text-purple text-lg">
+                          {iconMap[skill.icon] || <span>🚫</span>}
+                        </span>
+                        {skill.name}
+                      </div>
+                    ))}
+                </div>
+                {/* ✕ Button removed */}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

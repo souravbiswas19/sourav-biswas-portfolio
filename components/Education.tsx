@@ -1,77 +1,72 @@
 "use client";
 
-import { education } from "@/data";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
-
-import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import { education } from "@/data";
 
 const Education = () => {
   return (
     <section className="w-full py-20 px-4 md:px-10" id="education">
-      <h1 className="heading text-center">
-        My <span className="text-purple">Educational Background</span>
+      <h1 className="heading text-center mb-16">
+        My <span className="text-purple">Educational Timeline</span>
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <div className="relative pl-10 md:pl-16 space-y-20">
+        {/* Vertical glowing timeline line */}
+        <div className="absolute top-0 left-4 md:left-6 h-full w-[2px] bg-gradient-to-b from-purple via-purple/50 to-transparent animate-pulse z-0" />
+
         {education.map((edu, index) => (
           <motion.div
             key={edu.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="relative flex items-start gap-6"
           >
-            <CardContainer>
-              <CardBody
-                className="
-                  relative group/card
-                  rounded-2xl p-6 border border-white/10 shadow-md hover:shadow-purple-500/20 transition-all
-                  flex flex-col items-center text-center
-                  bg-[radial-gradient(circle_at_top_left,_#310356ff,_#000000ff_60%,_#1e085a_100%)]
-                "
-              >
-                <CardItem translateZ={60} className="mb-6">
-                  {edu.logo && (
-                    <Image
-                      src={edu.logo}
-                      alt={`${edu.institution} logo`}
-                      width={64}
-                      height={64}
-                      className="object-contain"
-                    />
-                  )}
-                </CardItem>
+            {/* Year Tag - to the left of the line */}
+            <div className="w-40 text-right pr-4">
+              <div className="bg-white/10 text-purple border border-purple/30 text-sm font-semibold px-4 py-1 rounded-xl backdrop-blur-md shadow-md min-w-max inline-block">
+                {edu.duration}
+              </div>
+            </div>
 
-                <CardItem
-                  translateZ={40}
-                  className="text-lg md:text-xl text-purple font-semibold mb-1"
-                >
-                  {edu.degree}
-                </CardItem>
+            {/* Timeline Dot */}
+            <div className="relative z-10 mt-2">
+              <div className="w-5 h-5 rounded-full bg-purple border-[4px] border-white shadow-[0_0_10px_rgba(168,85,247,0.6)]" />
+            </div>
 
-                <CardItem translateZ={30} className="mb-3 leading-[3.0]">
-                  <span
-                    className="w-fit text-white border border-white/20 bg-white/5 rounded px-3 py-1 text-sm font-semibold"
-                    aria-label="Duration"
-                  >
-                    {edu.duration}
-                  </span>
-                </CardItem>
+            {/* Education Card */}
+            <div className="relative flex-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg transition-all hover:scale-[1.02] hover:shadow-purple-500/30 duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                {edu.logo && (
+                  <Image
+                    src={edu.logo}
+                    alt={`${edu.institution} logo`}
+                    width={50}
+                    height={50}
+                    className="object-contain drop-shadow-md"
+                  />
+                )}
+                <div>
+                  <h2 className="text-lg md:text-xl font-semibold text-purple leading-tight">
+                    {edu.institution}
+                  </h2>
+                  <span className="text-white/70 text-sm">{edu.location}</span>
+                </div>
+              </div>
 
-                <CardItem className="pt-2 text-center leading-[3.0]" translateZ={30}>
-                  <p className="text-white font-medium">{edu.institution}</p>
-                  <p className="text-white/70 text-sm mt-2">{edu.location}</p>
-                  {edu.marks && (
-                    <p className="text-white/80 text-sm mt-3 font-semibold">
-                      <span className="text-white">{edu.marks_type}</span>{" "}
-                      <span className="text-purple">{edu.marks}</span>
-                    </p>
-                  )}
-                </CardItem>
-              </CardBody>
-            </CardContainer>
+              <p className="text-white font-medium">{edu.degree}</p>
+              {/* <p className="text-white/70 text-sm">{}</p> */}
+
+              {edu.marks && (
+                <p className="text-white/80 text-sm mt-3 font-semibold">
+                  <span className="text-white">{edu.marks_type}</span>
+                  <span className="text-purple">{edu.marks}</span>
+                </p>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>
